@@ -40,19 +40,27 @@ namespace EX2_TP2
         public double distance(point p)
         {
             double dx = this.x - p.x;
-            double dy = this.y = p.y;
-            return Math.Sqrt(dx * dx + dy * dy);
+            double dy = this.y - p.y;
+            return Math.Sqrt((dx * dx) + (dy * dy));
         }
-        public void translation(double p)
+        public void translation(double q)
         {
-            x += p;
-            y += p;
-
+            x += q ;
+            y += q;
+           
         }
         public void rotation(double ang)
         {
             x = x * Math.Cos(ang) - y * Math.Sin(ang);
             y = x * Math.Cos(ang) - y * Math.Sin(ang);
+        }
+
+        public Boolean Linearite(point p, point q)
+        {
+            
+            double a = (p.y - x) / (p.x - x);
+            double b = y - (a * x);
+            return q.y == a * q.x + b;
         }
 
         
